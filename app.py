@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from functions import preprocess_data, calculate_cosine_similarity, categorize_recovery_by_percent, categorize_recovery_by_stage, determine_num_chunks, lowpass_filter, calculate_user_acceleration, get_first_45000_rows
+from functions import preprocess_data, calculate_cosine_similarity, categorize_recovery_by_percent, categorize_recovery_by_stage, determine_num_chunks, lowpass_filter, calculate_user_acceleration, get_first_45000_rows, check_dataset_compatibility
 
 app = Flask(__name__)
 
@@ -32,6 +32,9 @@ def analyze_data():
             
         # Function to calculate user acceleration
         df = calculate_user_acceleration(df)
+        
+        # Check if the dataset is compatible
+        df = check_dataset_compatibility(df)
             
 
         sensor_columns = ['userAcceleration.x', 'userAcceleration.y', 'userAcceleration.z',

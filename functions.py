@@ -148,4 +148,4 @@ def check_dataset_compatibility(df):
         return jsonify({'error': error_message}), 400
     
     # If all required columns are present, return None (indicating compatibility)
-    return None
+    return df
