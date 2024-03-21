@@ -83,6 +83,12 @@ def lowpass_filter(data, low_cut_off=1, fs=50):
     
 
 def calculate_user_acceleration(df):
+    # Check if the required columns exist in the dataframe
+    required_columns = ['acceleration.x', 'acceleration.y', 'acceleration.z']
+    if not all(col in df.columns for col in required_columns):
+        # If any of the required columns is missing, return the dataframe as is
+        return df
+    
     # Create a new dataframe to store the acceleration data
     df_acceleration = pd.DataFrame()
     
@@ -115,3 +121,31 @@ def calculate_user_acceleration(df):
     
     # Return the updated dataframe
     return df
+
+    
+    
+def get_first_45000_rows(df):
+    if len(df) >= 45000:
+        return df.head(45000)
+    else:
+        # Return a 400 error if the dataframe has less than 45000 rows
+        # return flask.jsonify({'error': 'Dataframe does not have at least 45000 rows'}), 400
+        return df
+        
+        
+def check_dataset_compatibility(df):
+    # Define the list of required sensor columns
+    sensor_columns = ['userAcceleration.x', 'userAcceleration.y', 'userAcceleration.z',
+                      'rotationRate.x', 'rotationRate.y', 'rotationRate.z',
+                      'attitude.roll', 'attitude.pitch', 'attitude.yaw']
+    
+    # Check if all the required columns exist in the dataframe
+    missing_columns = [col for col in sensor_columns if col not in df.columns]
+    
+    # If any required column is missing, return an error response
+    if missing_columns:
+        error_message = f"Dataset is not compatible. Missing columns: {', '.join(missing_columns)}"
+        return jsonify({'error': error_message}), 400
+    
+    # If all required columns are present, return None (indicating compatibility)
+    return None

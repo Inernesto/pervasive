@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from functions import preprocess_data, calculate_cosine_similarity, categorize_recovery_by_percent, categorize_recovery_by_stage, determine_num_chunks, lowpass_filter, calculate_user_acceleration
+from functions import preprocess_data, calculate_cosine_similarity, categorize_recovery_by_percent, categorize_recovery_by_stage, determine_num_chunks, lowpass_filter, calculate_user_acceleration, get_first_45000_rows
 
 app = Flask(__name__)
 
@@ -27,13 +27,9 @@ def analyze_data():
                 
          
         # Get the first 45000 rows from the df
-        if len(df) >= 45000:
-            return df.head(45000)
-        # else:
-            # Return a 400 error if the dataframe has less than 45000 rows
-            # return flask.jsonify({'error': 'Dataframe does not have at least 45000 rows'}), 400
+        df = get_first_45000_rows(df)
             
-          
+            
         # Function to calculate user acceleration
         df = calculate_user_acceleration(df)
             
