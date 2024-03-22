@@ -117,16 +117,16 @@ def calculate_user_acceleration(df):
     
     # Replace columns 'acceleration.x', 'acceleration.y', 'acceleration.z' in the original dataframe with
     # the userAcceleration.y, userAcceleration.z, userAcceleration.x columns of df_acceleration
-    df[['acceleration.x', 'acceleration.y', 'acceleration.z']] = df_acceleration[['userAcceleration.x', 'userAcceleration.y', 'userAcceleration.z']]
+    df[['userAcceleration.x', 'userAcceleration.y', 'userAcceleration.z']] = df_acceleration[['userAcceleration.x', 'userAcceleration.y', 'userAcceleration.z']]
     
     # Return the updated dataframe
     return df
 
     
     
-def get_first_45000_rows(df):
+def get_last_45000_rows(df):
     if len(df) >= 45000:
-        return df.head(45000)
+        return df.tail(45000)
     else:
         # Return a 400 error if the dataframe has less than 45000 rows
         # return flask.jsonify({'error': 'Dataframe does not have at least 45000 rows'}), 400
