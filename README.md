@@ -23,6 +23,7 @@ Using the MinMaxScaler method from the sklearn library, we normalized the values
 
 C. Cosine Similarity.
 The cosine similarity formula is used here to calculate the cosine of the angle between two vectors in a multidimensional space. It's commonly used in various fields, including information retrieval, natural language processing, and recommendation systems. The formula for cosine similarity between two vectors A and B is:
+
 \[
 \text{Cosine Similarity}(A, B) = \frac{{A \cdot B}}{{\|A\| \|B\|}} = \frac{{\sum_{i=1}^{n} A_i \times B_i}}{{\sqrt{\sum_{i=1}^{n} (A_i)^2} \times \sqrt{\sum_{i=1}^{n} (B_i)^2}}}
 \]
@@ -34,7 +35,7 @@ A.B: This represents the dot product of vectors A and B. The dot product is calc
 • If the cosine similarity is -1, it means the vectors are perfectly anti-aligned (i.e., they point in opposite
 directions).
 In our project, we only focus on values between 0 to 1 as we are searching for the similarities and not the opposite. Hence negative values are considered as zero in our project.
-#### NB: This comparison is needed to compare similarity features between the dataset gotten from motionsense (healthy data) and that gotten from the users through the flask end point "/analyze" (recovering data) and the similarity score then shows how similar the recovering patients' data is to the motionsense dataset, hence resulting in the recovery score or rate in percentage.
+#### NB: This comparison is needed to compare similarity features between the dataset gotten from motionsense (healthy data) and that gotten from the users through the flask end point "/analyze-data" (recovering data) and the similarity score then shows how similar the recovering patients' data is to the motionsense dataset, hence resulting in the recovery score or rate in percentage.
 
 ## Chalenges
 The major challenge with this approach is, we seem to sometimes get unexpected similarity values when we run the similarity. Especially when we expect the similarity score to be very high (due to the fact that the data is also coming from a healthy person), we get just above 70% similarity. We suspect this behaviour is as a result of the sensors used. In practice, unexpected sensor behaviours can affect the output or outcome of any project.
