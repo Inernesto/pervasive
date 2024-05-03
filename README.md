@@ -16,12 +16,15 @@ attitude.roll, attitude.pitch, attitude.yaw, gravity.x, gravity.y, gravity.z, ro
 
 ## METHODOLOGY
 A. Preprocessing of the Dataset.
+
 First, the dataset was downloaded and using panda data frame it was cleaned and the empty rows were removed. We selected only the walking samples from the dataset given the scope of our project. We also calculated the magnitude of the following features user acceleration, rotation and attitude in the x, y & z axis.
 
 B. Normalizing the Dataset.
+
 Using the MinMaxScaler method from the sklearn library, we normalized the values of the data frame to a scale of -1 to 1. This was necessary to make it easier to process the large data frame.
 
 C. Cosine Similarity.
+
 The cosine similarity formula is used here to calculate the cosine of the angle between two vectors in a multidimensional space. It's commonly used in various fields, including information retrieval, natural language processing, and recommendation systems. The formula for cosine similarity between two vectors A and B is:
 
 Cosine Similarity(A, B) = (A · B) / (||A|| * ||B||) = Σ(A_i * B_i) / (sqrt(Σ(A_i^2)) * sqrt(Σ(B_i^2)))
