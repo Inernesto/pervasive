@@ -23,11 +23,7 @@ Using the MinMaxScaler method from the sklearn library, we normalized the values
 
 C. Cosine Similarity.
 The cosine similarity formula is used here to calculate the cosine of the angle between two vectors in a multidimensional space. It's commonly used in various fields, including information retrieval, natural language processing, and recommendation systems. The formula for cosine similarity between two vectors A and B is:
-
-\[
-\text{Cosine Similarity}(A, B) = \frac{{A \cdot B}}{{\|A\| \|B\|}} = \frac{{\sum_{i=1}^{n} A_i \times B_i}}{{\sqrt{\sum_{i=1}^{n} (A_i)^2} \times \sqrt{\sum_{i=1}^{n} (B_i)^2}}}
-\]
-
+Cosine Similarity(A, B) = (A · B) / (||A|| * ||B||) = Σ(A_i * B_i) / (sqrt(Σ(A_i^2)) * sqrt(Σ(B_i^2)))
 A.B: This represents the dot product of vectors A and B. The dot product is calculated by multiplying corresponding elements of the two vectors and then summing up the results. In other words, it's the sum of the products of the individual components of the vectors. |A| and |B|: These represent the Euclidean norms (also known as magnitudes or lengths) of vectors A and B, respectively. The Euclidean norm of a vector is calculated as the square root of the sum of the squares of its components. The cosine similarity formula yields a value between -1 and
 1, where:
 • If the cosine similarity is 1, it means the vectors are perfectly aligned (i.e., they point in the same direction).
