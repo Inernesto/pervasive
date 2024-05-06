@@ -1,6 +1,6 @@
-# pervasive
+## Introduction
 During the process of rehabilitation for individuals with leg-related injuries, the journey to full recovery involves not only the medical procedures performed but also the physiotherapeutic activities such as RICE (Rest, Ice, Compression, Elevation) to guarantee full recovery. Patients undergoing physiotherapy often face challenges in tracking
-their progress especially in terms of restored mobility and walking capabilities, hence we have developed this flask application using Python which will receive the user's walking data as an HTTP post request in a JSON format and then return the recovery rate as the response.
+their progress especially in terms of restored mobility and walking capabilities, hence we have developed this flask application called vitality using Python which will receive the user's walking data as an HTTP post request in a JSON format and then return the recovery rate as the response.
 
 ### Goals.
 To this end, we aim to proffer a solution by creating an application that will track the recovery rate of patients who use the application for (walking activity).
