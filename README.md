@@ -38,5 +38,5 @@ directions).
 In our project, we only focus on values between 0 to 1 as we are searching for the similarities and not the opposite. Hence negative values are considered as zero in our project.
 #### NB: This comparison is needed to compare similarity features between the dataset gotten from motionsense (healthy data) and that gotten from the users through the flask end point "/analyze-data" (recovering data) and the similarity score then shows how similar the recovering patients' data is to the motionsense dataset, hence resulting in the recovery score or rate in percentage.
 
-## Chalenges
+## Challenges
 The major challenge with this approach is, we seem to sometimes get unexpected similarity values when we run the similarity. Especially when we expect the similarity score to be very high (due to the fact that the data is also coming from a healthy person), we get just above 70% similarity. We suspect this behaviour is as a result of the sensors used. In practice, unexpected sensor behaviours can affect the output or outcome of any project.
